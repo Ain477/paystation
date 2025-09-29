@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -45,6 +49,19 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
           
+      - name: Extract changelog for current version
+        if: steps.version-check.outputs.changed == 'true'
+        id: changelog
+        run: |
+          VERSION="${{ steps.version-check.outputs.current }}"
+          # Extract changelog content for current version
+          CHANGELOG_CONTENT=$(awk "/## \[$VERSION\]/{flag=1; next} /## \[/{flag=0} flag" CHANGELOG.md || echo "No changelog entry found for version $VERSION")
+          # Save to file to handle multiline content
+          echo "$CHANGELOG_CONTENT" > /tmp/changelog.txt
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          cat /tmp/changelog.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
       - name: Publish to NPM
         if: steps.version-check.outputs.changed == 'true'
         run: npm publish
@@ -53,20 +70,26 @@ jobs:
           
       - name: Create GitHub Release
         if: steps.version-check.outputs.changed == 'true'
-        uses: actions/create-release@v1
+        run: |
+          cat > /tmp/release_notes.md << 'EOF'
+          ## PayStation TypeScript SDK v${{ steps.version-check.outputs.current }}
+
+          ### Installation
+          ```bash
+          npm install paystation@${{ steps.version-check.outputs.current }}
+          ```
+
+          ### Changes
+          ${{ steps.changelog.outputs.content }}
+
+          ### Links
+          - [NPM Package](https://www.npmjs.com/package/paystation)
+          - [Documentation](https://github.com/ain477/paystation#readme)
+          - [Changelog](https://github.com/ain477/paystation/blob/main/CHANGELOG.md)
+          EOF
+          
+          gh release create "v${{ steps.version-check.outputs.current }}" \
+            --title "Release v${{ steps.version-check.outputs.current }}" \
+            --notes-file /tmp/release_notes.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.version-check.outputs.current }}
-          release_name: Release v${{ steps.version-check.outputs.current }}
-          body: |
-            ## Changes
-            
-            Auto-generated release for version ${{ steps.version-check.outputs.current }}
-            
-            ### Installation
-            ```bash
-            npm install paystation@${{ steps.version-check.outputs.current }}
-            ```
-          draft: false
-          prerelease: false
