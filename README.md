@@ -985,20 +985,16 @@ const response = await debugApiCall('Payment Initiation', () =>
 ## Links and Resources
 
 ### PayStation Documentation
-- [PayStation API Documentation](https://paystation.com.bd/api-documentation)
-- [PayStation Developer Portal](https://developer.paystation.com.bd)
-- [PayStation Merchant Dashboard](https://merchant.paystation.com.bd)
+- [PayStation API Documentation](https://paystation.com.bd/documentation)
 
 ### Support Resources
-- [PayStation Support Center](https://support.paystation.com.bd)
-- [PayStation Contact Information](https://paystation.com.bd/contact)
-- Email: support@paystation.com.bd
-- Phone: +880-2-XXXXXXXX
+- [PayStation Support Center](https://paystation.com.bd/#contact)
+- Email: info@paystation.com.bd
+- Phone: 09613820890
 
 ### SDK Resources
-- [GitHub Repository](https://github.com/your-org/paystation-sdk)
-- [NPM Package](https://www.npmjs.com/package/paystation)
-- [Issue Tracker](https://github.com/your-org/paystation-sdk/issues)
+- [GitHub Repository](https://github.com/Ain477/paystation)
+- [Issue Tracker](https://github.com/Ain477/paystation/issues)
 
 ## Contributing
 
@@ -1008,8 +1004,8 @@ We welcome contributions to improve the PayStation TypeScript SDK! Here's how yo
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-org/paystation-sdk.git
-   cd paystation-sdk
+   git clone https://github.com/ain477/paystation.git
+   cd paystation
    ```
 
 2. **Install dependencies**:
@@ -1071,7 +1067,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ```
 MIT License
 
-Copyright (c) 2024 PayStation SDK Contributors
+Copyright (c) 2025 PayStation SDK Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
