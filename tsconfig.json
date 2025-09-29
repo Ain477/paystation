@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM"],
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/types": ["./src/types/index"],
+      "@/types/*": ["./src/types/*"],
+      "@/config": ["./src/config/index"],
+      "@/config/*": ["./src/config/*"],
+      "@/errors": ["./src/errors/index"],
+      "@/errors/*": ["./src/errors/*"],
+      "@/http": ["./src/http/index"],
+      "@/http/*": ["./src/http/*"],
+      "@/request": ["./src/request/index"],
+      "@/request/*": ["./src/request/*"],
+      "@/response": ["./src/response/index"],
+      "@/response/*": ["./src/response/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

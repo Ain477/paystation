@@ -1,0 +1,45 @@
+{
+  "name": "paystation",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for PayStation's Hosted Checkout Integration",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "dev": "rslib build --watch",
+    "test": "vitest",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "paystation",
+    "payment",
+    "typescript",
+    "sdk",
+    "checkout"
+  ],
+  "author": "Al-Amin Islam Nerob <alamin@aincoder.com>",
+  "license": "MIT",
+  "dependencies": {
+    "swr": "^2.0.0"
+  },
+  "devDependencies": {
+    "@rslib/core": "^0.0.1",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
