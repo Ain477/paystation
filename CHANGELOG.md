@@ -5,6 +5,19 @@ All notable changes to the PayStation TypeScript SDK will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [1.0.1] - 2024-09-30
+
+### Fixed
+- Fixed release script issues with dist folder in .gitignore
+- Updated package.json scripts to work with automated publishing
+- Improved release automation workflow
+
+### Changed
+- Removed dist folder from version control (built during CI/CD)
+- Updated release script to handle changelog updates automatically
+
 ## [1.0.0] - 2024-09-30
 
 ### Added
@@ -55,4 +68,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TypeScript usage examples with type imports
 - Troubleshooting guide for common issues
 
+[Unreleased]: https://github.com/ain477/paystation/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/ain477/paystation/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ain477/paystation/releases/tag/v1.0.0

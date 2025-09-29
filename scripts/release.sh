@@ -55,9 +55,13 @@ npm version $RELEASE_TYPE --no-git-tag-version
 NEW_VERSION=$(node -p "require('./package.json').version")
 echo "🎯 New version: $NEW_VERSION"
 
+# Update CHANGELOG.md
+echo "📝 Updating CHANGELOG.md..."
+sed -i '' "s/## \[Unreleased\]/## [Unreleased]\n\n## [$NEW_VERSION] - $(date +%Y-%m-%d)/" CHANGELOG.md 2>/dev/null || true
+
 # Commit version bump
 echo "💾 Committing version bump..."
-git add package.json
+git add package.json CHANGELOG.md
 git commit -m "chore: bump version to $NEW_VERSION"
 
 # Create and push tag
