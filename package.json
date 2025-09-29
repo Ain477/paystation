@@ -21,8 +21,12 @@
   "scripts": {
     "build": "rslib build",
     "dev": "rslib build --watch",
-    "test": "vitest",
-    "type-check": "tsc --noEmit"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "npm run type-check && npm test && npm run build",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "paystation",
@@ -33,6 +37,14 @@
   ],
   "author": "Al-Amin Islam Nerob <alamin@aincoder.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ain477/paystation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ain477/paystation/issues"
+  },
+  "homepage": "https://github.com/ain477/paystation#readme",
   "dependencies": {
     "swr": "^2.0.0"
   },
