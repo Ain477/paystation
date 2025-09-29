@@ -1,6 +1,6 @@
 {
   "name": "paystation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript SDK for PayStation's Hosted Checkout Integration",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
