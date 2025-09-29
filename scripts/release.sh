@@ -61,7 +61,7 @@ sed -i '' "s/## \[Unreleased\]/## [Unreleased]\n\n## [$NEW_VERSION] - $(date +%Y
 
 # Commit version bump
 echo "💾 Committing version bump..."
-git add package.json CHANGELOG.md
+git add package.json package-lock.json CHANGELOG.md
 git commit -m "chore: bump version to $NEW_VERSION"
 
 # Create and push tag
